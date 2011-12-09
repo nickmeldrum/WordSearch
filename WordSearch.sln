@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Test", "ModelTest\Model.Test.csproj", "{BCE1726B-C288-44B1-A3FA-61F5E2AB8D78}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2BB2C5BD-5F90-466E-910D-70970DA2FC6A}"
+	ProjectSection(SolutionItems) = preProject
+		shared\SolutionAssemblyInfo.cs = shared\SolutionAssemblyInfo.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
