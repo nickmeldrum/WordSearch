@@ -48,8 +48,21 @@
     <Compile Include="..\shared\SolutionAssemblyInfo.cs">
       <Link>Properties\SolutionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="IndividualWordCheck\IndividualDiagonallyLeftDownWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualDiagonallyRightDownWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualDiagonallyLeftUpWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualDiagonallyRightUpWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualDownWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualLeftWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualRightWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualUpWordCheckTestFixture.cs" />
+    <Compile Include="IndividualWordCheck\IndividualWordCheckTestFixtureBase.cs" />
+    <Compile Include="MaxLetters\MaxLettersForBoxTestFixtureBase.cs" />
+    <Compile Include="MaxLetters\MaxLettersForSmall4By4BoxTestFixture.cs" />
+    <Compile Include="MaxLetters\MaxLettersForSmall6By2BoxTestFixture.cs" />
     <Compile Include="SearchEngineTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchResultsOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
