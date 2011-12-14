@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Model;
+using Model.Search;
 
 namespace Windows {
     public partial class MainForm : Form {
@@ -20,6 +21,8 @@ namespace Windows {
         private Brush brush = new SolidBrush(Color.Blue);
         private Font font = new Font(FontFamily.GenericMonospace, 2);
 
+        private Dictionary<int, Color> lastBoxesSearched = new Dictionary<int, Color>();
+
         private void Form1_Load(object sender, EventArgs e) {
             workerThread = new BackgroundWorker();
             workerThread.DoWork += workerThread_DoWork;
@@ -28,8 +31,8 @@ namespace Windows {
 
             wordSearchBox = new WordSearchBox();
             searchEngine = new SearchEngine(wordSearchBox);
-            searchEngine.BoxesBeingSearched += searchEngine_BoxesBeingSearched;
-            searchEngine.FoundWord += searchEngine_FoundWord;
+            searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
+            searchEngine.FoundWord += SearchEngineFoundWord;
 
             DrawBox();
         }
@@ -40,23 +43,21 @@ namespace Windows {
             RevertBoxColor();
         }
 
-        void searchEngine_FoundWord(object sender, FoundWordEventsArgs e) {
-            Action appendFoundWordToTextBox = () => foundWordsTextbox.AppendText(e.Word + Environment.NewLine);
+        private void SearchEngineFoundWord(string direction, List<int> charIndexes, string word) {
+            Action appendFoundWordToTextBox = () => foundWordsTextbox.AppendText(word + Environment.NewLine);
             Invoke(appendFoundWordToTextBox);
 
-            foreach (var i in e.Boxes) {
+            foreach (var i in charIndexes) {
                 lastBoxesSearched[i] = Color.DarkSeaGreen;
                 //searchBoxPanel.Controls[i].BackColor = Color.DarkSeaGreen;
             }
         }
 
-        private Dictionary<int, Color> lastBoxesSearched = new Dictionary<int, Color>();
-
-        void searchEngine_BoxesBeingSearched(object sender, BoxSearchingEventsArgs e) {
+        private void SearchEngineBoxesBeingSearched(string direction, List<int> charIndexes) {
             RevertBoxColor();
             lastBoxesSearched = new Dictionary<int, Color>();
 
-            foreach (var i in e.Boxes) {
+            foreach (var i in charIndexes) {
                 //lastBoxesSearched.Add(i, searchBoxPanel.Controls[i].BackColor);
                 //searchBoxPanel.Controls[i].BackColor = Color.Aqua;
             }
@@ -107,7 +108,7 @@ namespace Windows {
         }
 
         void workerThread_DoWork(object sender, DoWorkEventArgs e) {
-            searchEngine.Search();
+            searchEngine.CheckAllPossibleWords();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
