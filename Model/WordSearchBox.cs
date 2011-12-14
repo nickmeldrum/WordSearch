@@ -9,10 +9,15 @@
         }
 
         public WordSearchBox() {
-            InitialiseBox();
+            InitialiseFromResourceFile();
         }
 
-        private void InitialiseBox() {
+        public WordSearchBox(string letters, int boxWidth) {
+            Letters = letters;
+            BoxWidth = boxWidth;
+        }
+
+        private void InitialiseFromResourceFile() {
             Letters = Resources.Letters;
             BoxWidth = int.Parse(Resources.BoxWidth);
         }

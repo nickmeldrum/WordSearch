@@ -3,21 +3,25 @@ using System.IO;
 
 namespace Model {
     public class WordList {
-        private IList<string> words;
+        public IList<string> Words { get; private set; }
 
-        public IList<string> Words {
-            get {
-                if (words == null)
-                    InitialiseWordList();
-                return words;
-            }
+        public WordList() {
+            InitialiseWordList(Resources.WordListFilename);
         }
 
-        private void InitialiseWordList() {
-            words = new List<string>();
-            using (var reader = new StreamReader(Resources.WordListFilename)) {
+        public WordList(string filename) {
+            InitialiseWordList(filename);
+        }
+
+        public WordList(IList<string> wordList) {
+            Words = wordList;
+        }
+
+        private void InitialiseWordList(string filename) {
+            Words = new List<string>();
+            using (var reader = new StreamReader(filename)) {
                 while (!reader.EndOfStream) {
-                    words.Add(reader.ReadLine());
+                    Words.Add(reader.ReadLine());
                 }
             }
         }
