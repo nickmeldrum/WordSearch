@@ -1,16 +1,18 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2BB2C5BD-5F90-466E-910D-70970DA2FC6A}"
+	ProjectSection(SolutionItems) = preProject
+		shared\SolutionAssemblyInfo.cs = shared\SolutionAssemblyInfo.cs
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{3294E61B-4F59-4620-A3BF-96155C0FB275}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{3B62424D-8459-41E1-B21B-45B0E4134584}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Test", "ModelTest\Model.Test.csproj", "{BCE1726B-C288-44B1-A3FA-61F5E2AB8D78}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2BB2C5BD-5F90-466E-910D-70970DA2FC6A}"
-	ProjectSection(SolutionItems) = preProject
-		shared\SolutionAssemblyInfo.cs = shared\SolutionAssemblyInfo.cs
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows", "Windows\Windows.csproj", "{A909D8AD-F5A1-4121-82D8-29D0F9EE92E0}"
 EndProject
