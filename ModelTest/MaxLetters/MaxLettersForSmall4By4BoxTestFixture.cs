@@ -7,7 +7,6 @@ namespace Model.Test.MaxLetters {
             get { return new WordSearchBox("abcdabcdabcdabcd", 4); }
         }
 
-        [Test]
         [TestCase(0, 1)][TestCase(1, 2)][TestCase(2, 3)][TestCase(3, 4)]
         [TestCase(4, 1)][TestCase(5, 2)][TestCase(6, 3)][TestCase(7, 4)]
         [TestCase(8, 1)][TestCase(9, 2)][TestCase(10, 3)][TestCase(11, 4)]
@@ -16,7 +15,6 @@ namespace Model.Test.MaxLetters {
             base.TestLeftWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 4)]
         [TestCase(1, 3)]
         [TestCase(2, 2)]
@@ -37,7 +35,6 @@ namespace Model.Test.MaxLetters {
             base.TestRightWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 4)]
         [TestCase(1, 4)]
         [TestCase(2, 4)]
@@ -58,7 +55,6 @@ namespace Model.Test.MaxLetters {
             base.TestDownWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(2, 1)]
@@ -79,7 +75,6 @@ namespace Model.Test.MaxLetters {
             base.TestUpWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 4)]
         [TestCase(1, 3)]
         [TestCase(2, 2)]
@@ -100,7 +95,6 @@ namespace Model.Test.MaxLetters {
             base.TestDiagonallyRightDownWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 2)]
         [TestCase(2, 3)]
@@ -121,7 +115,6 @@ namespace Model.Test.MaxLetters {
             base.TestDiagonallyLeftDownWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(2, 1)]
@@ -142,7 +135,6 @@ namespace Model.Test.MaxLetters {
             base.TestDiagonallyRightUpWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(2, 1)]

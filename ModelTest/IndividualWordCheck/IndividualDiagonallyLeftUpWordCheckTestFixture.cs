@@ -4,7 +4,6 @@ using NUnit.Framework;
 namespace Model.Test.IndividualWordCheck {
     [TestFixture]
     public class IndividualDiagonallyLeftUpWordCheckTestFixture : IndividualWordCheckTestFixtureBase {
-        [Test]
         [TestCase("dzzzzrzzzzozzzzw", 4, 15, 4, "word")]
         public void TestADiagonallyLeftUpWordIsFound(string wordSearchLetters, int boxWidth,
                                          int startLetter, int wordLength, string word) {
@@ -12,7 +11,6 @@ namespace Model.Test.IndividualWordCheck {
                 searchBox => new DiagonallyLeftUpWordConstructor(startLetter, searchBox));
         }
 
-        [Test]
         [TestCase("zzzzzzzzzzzzword", 4, 15, 4)]
         public void TestADiagonallyLeftUpDownWordIsNotFoundIfDoesntExist(string wordSearchLetters, int boxWidth,
                                                          int startLetter, int wordLength) {

@@ -5,7 +5,6 @@ namespace Model.Test.MaxLetters {
     public class MaxLettersForSmall6By2BoxTestFixture : MaxLettersForBoxTestFixtureBase {
         protected override WordSearchBox TestSearchBox { get { return new WordSearchBox("abcdef", 3); } }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 2)]
         [TestCase(2, 3)]
@@ -16,7 +15,6 @@ namespace Model.Test.MaxLetters {
             base.TestLeftWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 3)]
         [TestCase(1, 2)]
         [TestCase(2, 1)]
@@ -27,7 +25,6 @@ namespace Model.Test.MaxLetters {
             base.TestRightWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 2)]
         [TestCase(1, 2)]
         [TestCase(2, 2)]
@@ -38,7 +35,6 @@ namespace Model.Test.MaxLetters {
             base.TestDownWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(2, 1)]
@@ -49,7 +45,6 @@ namespace Model.Test.MaxLetters {
             base.TestUpWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 2)]
         [TestCase(1, 2)]
         [TestCase(2, 1)]
@@ -60,7 +55,6 @@ namespace Model.Test.MaxLetters {
             base.TestDiagonallyRightDownWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 2)]
         [TestCase(2, 2)]
@@ -71,7 +65,6 @@ namespace Model.Test.MaxLetters {
             base.TestDiagonallyLeftDownWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(2, 1)]
@@ -82,7 +75,6 @@ namespace Model.Test.MaxLetters {
             base.TestDiagonallyRightUpWordMaxLettersAreCorrect(startLetter, maxLetters);
         }
 
-        [Test]
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(2, 1)]

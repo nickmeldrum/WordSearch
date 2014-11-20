@@ -4,7 +4,6 @@ using NUnit.Framework;
 namespace Model.Test.IndividualWordCheck {
     [TestFixture]
     public class IndividualDownWordCheckTestFixture : IndividualWordCheckTestFixtureBase {
-        [Test]
         [TestCase("wzzzozzzrzzzdzzz", 4, 0, 4, "word")]
         public void TestADownWordIsFound(string wordSearchLetters, int boxWidth,
                                          int startLetter, int wordLength, string word) {
@@ -12,7 +11,6 @@ namespace Model.Test.IndividualWordCheck {
                 searchBox => new DownWordConstructor(startLetter, searchBox));
         }
 
-        [Test]
         [TestCase("wordzzzzzzzzzzzz", 4, 0, 4)]
         public void TestADownWordIsNotFoundIfDoesntExist(string wordSearchLetters, int boxWidth,
                                                          int startLetter, int wordLength) {
