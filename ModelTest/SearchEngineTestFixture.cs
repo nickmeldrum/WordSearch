@@ -5,7 +5,7 @@ namespace Model.Test {
     [TestFixture]
     public class SearchEngineTestFixture {
 
-        //[Test]
+        [Test]
         public void RunWholeSearchEngineNoTesting() {
             // arrange
             var searchEngine = new SearchEngine();
