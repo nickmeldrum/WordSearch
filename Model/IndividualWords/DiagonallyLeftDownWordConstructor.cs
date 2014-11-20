@@ -13,8 +13,9 @@ namespace Model.IndividualWords {
 
         public override int[] CharacterIndexes(int currentWordLength) {
             var a = new int[currentWordLength];
-            for (var i = currentWordLength - 1; i >= 0; i--) {
-                a[i] += StartLetter + (WordSearchBox.BoxWidth * i) + i;
+            for (var i = currentWordLength - 1; i >= 0; i--)
+            {
+                a[i] += StartLetter + (WordSearchBox.BoxWidth * i) - i;
             }
             return a;
         }
