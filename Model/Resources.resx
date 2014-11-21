@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BoxWidth" xml:space="preserve">
+  <data name="Test1Letters" xml:space="preserve">
+    <value>ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn</value>
+  </data>
+  <data name="Test1Width" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="Letters" xml:space="preserve">
-    <value>ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn</value>
+  <data name="Test2Letters" xml:space="preserve">
+    <value>WVERTICALLROOAFFLSABACRILIATOANDODKONWDCDRKESOODDKOEEPZEGLIWMSIIHOAERAALRKRRIRERKODIDEDRCDHELWSLEUTH</value>
+  </data>
+  <data name="Test2Width" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="Test2Words" xml:space="preserve">
+    <value>Week;Find;Random;Sleuth;Backward;Vertical;Diagonal;Wikipedia;Horizontal;Word;Search</value>
   </data>
   <data name="WordListFilename" xml:space="preserve">
     <value>Resources\wordsEn.txt</value>

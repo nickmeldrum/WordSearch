@@ -18,8 +18,8 @@
         }
 
         private void InitialiseFromResourceFile() {
-            Letters = Resources.Letters;
-            BoxWidth = int.Parse(Resources.BoxWidth);
+            Letters = Resources.Test1Letters;
+            BoxWidth = int.Parse(Resources.Test1Width);
         }
     }
 }
