@@ -8,13 +8,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2BB2C5
 		shared\SolutionAssemblyInfo.cs = shared\SolutionAssemblyInfo.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{3294E61B-4F59-4620-A3BF-96155C0FB275}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{3B62424D-8459-41E1-B21B-45B0E4134584}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Test", "ModelTest\Model.Test.csproj", "{BCE1726B-C288-44B1-A3FA-61F5E2AB8D78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows", "Windows\Windows.csproj", "{A909D8AD-F5A1-4121-82D8-29D0F9EE92E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D89A88BF-D1AB-4144-A992-E4C53992AF6D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,16 +31,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3294E61B-4F59-4620-A3BF-96155C0FB275}.Release|x86.ActiveCfg = Release|Any CPU
 		{3B62424D-8459-41E1-B21B-45B0E4134584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B62424D-8459-41E1-B21B-45B0E4134584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B62424D-8459-41E1-B21B-45B0E4134584}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
