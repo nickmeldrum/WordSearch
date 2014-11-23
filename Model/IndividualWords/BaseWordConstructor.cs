@@ -9,18 +9,18 @@ namespace Model.IndividualWords {
             StartLetter = startLetter;
             WordSearchBox = wordSearchBox;
             maxLettersToSearchCalculator = new MaxLettersToSearchCalculator(
-                StartLetter, WordSearchBox.BoxWidth, WordSearchBox.BoxHeight);
+                StartLetter, WordSearchBox.Width, WordSearchBox.Height);
         }
 
         protected readonly int StartLetter;
         protected readonly WordSearchBox WordSearchBox;
 
         protected int CurrentRow {
-            get { return StartLetter / WordSearchBox.BoxWidth; }
+            get { return StartLetter / WordSearchBox.Width; }
         }
 
         protected int CurrentColumn {
-            get { return StartLetter % WordSearchBox.BoxWidth; }
+            get { return StartLetter % WordSearchBox.Width; }
         }
 
         protected MaxLettersToSearchCalculator MaxLettersToSearchCalculator {

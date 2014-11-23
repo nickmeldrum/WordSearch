@@ -18,13 +18,10 @@ namespace Model.Search {
         public bool Cancel { get; set; }
 
         private readonly WordList wordList = new WordList();
-        private readonly WordSearchBox wordSearchBox = new WordSearchBox();
+        private readonly WordSearchBox wordSearchBox;
 
         public SearchEngine(WordSearchBox wordSearchBox) {
             this.wordSearchBox = wordSearchBox;
-        }
-
-        public SearchEngine() {
         }
 
         public void CheckAllPossibleWords() {

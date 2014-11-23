@@ -1,25 +1,17 @@
 ﻿namespace Model {
     public class WordSearchBox {
         public string Letters { get; private set; }
-        public int BoxWidth { get; private set; }
-        public int BoxHeight {
+        public int Width { get; private set; }
+        public int Height {
             get {
-                return Letters.Length / BoxWidth;
+                return Letters.Length / Width;
             }
         }
 
-        public WordSearchBox() {
-            InitialiseFromResourceFile();
-        }
-
-        public WordSearchBox(string letters, int boxWidth) {
+        public WordSearchBox(string letters, int width)
+        {
             Letters = letters;
-            BoxWidth = boxWidth;
-        }
-
-        private void InitialiseFromResourceFile() {
-            Letters = Resources.Test1Letters;
-            BoxWidth = int.Parse(Resources.Test1Width);
+            Width = width;
         }
     }
 }

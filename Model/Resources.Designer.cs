@@ -22,7 +22,7 @@ namespace Model {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Model {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Model.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Model {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Model {
         /// <summary>
         ///   Looks up a localized string similar to ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn.
         /// </summary>
-        internal static string Test1Letters {
+        public static string Test1Letters {
             get {
                 return ResourceManager.GetString("Test1Letters", resourceCulture);
             }
@@ -72,16 +72,16 @@ namespace Model {
         /// <summary>
         ///   Looks up a localized string similar to 15.
         /// </summary>
-        internal static string Test1Width {
+        public static string Test1Width {
             get {
                 return ResourceManager.GetString("Test1Width", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WVERTICALLROOAFFLSABACRILIATOANDODKONWDCDRKESOODDKOEEPZEGLIWMSIIHOAERAALRKRRIRERKODIDEDRCDHELWSLEUTH.
+        ///   Looks up a localized string similar to wverticallrooafflsabacriliatoandodkonwdcdrkesooddkoeepzegliwmsiihoaeraalrkrrirerkodidedrcdhelwsleuth.
         /// </summary>
-        internal static string Test2Letters {
+        public static string Test2Letters {
             get {
                 return ResourceManager.GetString("Test2Letters", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Model {
         /// <summary>
         ///   Looks up a localized string similar to 10.
         /// </summary>
-        internal static string Test2Width {
+        public static string Test2Width {
             get {
                 return ResourceManager.GetString("Test2Width", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Model {
         /// <summary>
         ///   Looks up a localized string similar to Week;Find;Random;Sleuth;Backward;Vertical;Diagonal;Wikipedia;Horizontal;Word;Search.
         /// </summary>
-        internal static string Test2Words {
+        public static string Test2Words {
             get {
                 return ResourceManager.GetString("Test2Words", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Model {
         /// <summary>
         ///   Looks up a localized string similar to Resources\wordsEn.txt.
         /// </summary>
-        internal static string WordListFilename {
+        public static string WordListFilename {
             get {
                 return ResourceManager.GetString("WordListFilename", resourceCulture);
             }

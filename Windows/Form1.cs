@@ -29,7 +29,7 @@ namespace Windows {
             workerThread.RunWorkerCompleted += workerThread_RunWorkerCompleted;
             workerThread.WorkerSupportsCancellation = true;
 
-            wordSearchBox = new WordSearchBox();
+            wordSearchBox = new WordSearchBox(Resources.Test1Letters, int.Parse(Resources.Test1Width));
             searchEngine = new SearchEngine(wordSearchBox);
             searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
             searchEngine.FoundWord += SearchEngineFoundWord;
@@ -72,11 +72,11 @@ namespace Windows {
         private void DrawBox() {
             //searchBoxPanel.Controls.Clear();
             canvas = wordSearchPictureBox.CreateGraphics();
-            var letterWidth = wordSearchPictureBox.Width / wordSearchBox.BoxWidth;
+            var letterWidth = wordSearchPictureBox.Width / wordSearchBox.Width;
 
             for (var i = 0; i < wordSearchBox.Letters.Length; i++) {
-                var currentRow = i / wordSearchBox.BoxWidth;
-                var currentColumn = i % wordSearchBox.BoxWidth;
+                var currentRow = i / wordSearchBox.Width;
+                var currentColumn = i % wordSearchBox.Width;
 
                 canvas.DrawRectangle(pen,
                     letterWidth * currentColumn, letterWidth * currentRow,
@@ -122,11 +122,11 @@ namespace Windows {
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e) {
-            var letterWidth = wordSearchPictureBox.Width / wordSearchBox.BoxWidth;
+            var letterWidth = wordSearchPictureBox.Width / wordSearchBox.Width;
 
             for (var i = 0; i < wordSearchBox.Letters.Length; i++) {
-                var currentRow = i / wordSearchBox.BoxWidth;
-                var currentColumn = i % wordSearchBox.BoxWidth;
+                var currentRow = i / wordSearchBox.Width;
+                var currentColumn = i % wordSearchBox.Width;
 
                 e.Graphics.DrawRectangle(pen,
                     letterWidth * currentColumn, letterWidth * currentRow,
