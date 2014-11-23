@@ -1,34 +1,59 @@
-﻿using Model.Search;
+﻿using System;
+using Model.Search;
 using NUnit.Framework;
 
 namespace Model.Test {
     using System.Collections.Generic;
+    using System.Linq;
 
     [TestFixture]
-    public class SearchEngineTestFixture {
-        [Test]
-        public void SearchEngineFindsExpectedWordsInTestData()
+    public class SearchEngineTestFixture
+    {
+        [TestCase("Wikipedia")]
+        [TestCase("Electronics")]
+        public void SearchEngineFindsExpectedWordsInTestData(string testName)
         {
             // arrange
-            var wordSearchBox = new WordSearchBox(Resources.Test2Letters, int.Parse(Resources.Test2Width));
+            var wordSearchBox = new WordSearchBox(getLetters(testName), getWidth(testName));
             var searchEngine = new SearchEngine(wordSearchBox);
-            var expectedWords = Resources.Test2Words.ToLowerInvariant().Split(';');
+            var expectedWords = getExpectedWords(testName);
 
             // act
             searchEngine.CheckAllPossibleWords();
+            var wordsNotFound = expectedWords.Where(expectedWord => !searchEngine.FoundWords.Contains(expectedWord)).ToList();
 
             // assert
-            foreach (var expectedWord in expectedWords)
-            {
-                if (!searchEngine.FoundWords.Contains(expectedWord))
-                    Assert.Fail("Expected word {0} wasn't found", expectedWord);
-            }
+            Assert.IsEmpty(wordsNotFound, "Expected words weren't found", wordsNotFound);
+
         }
 
-        [TestCaseSource("GetTestData")]
-        public void RunWholeSearchEngineUsingTestDataAndJustOutput(TestData testData) {
+        private string getLetters(string testName)
+        {
+            return getResourceString(testName + "Letters");
+        }
+
+        private int getWidth(string testName)
+        {
+            return int.Parse(getResourceString(testName + "Width"));
+        }
+
+        private string[] getExpectedWords(string testName)
+        {
+            return getResourceString(testName + "Words").Split(';');
+        }
+
+        private string getResourceString(string name)
+        {
+            var resourceString = Resources.ResourceManager.GetString(name);
+            if (string.IsNullOrWhiteSpace(resourceString)) throw new ArgumentException("Resource not found", name);
+            return resourceString.ToLowerInvariant().Trim();
+        }
+
+        [TestCase("Test")]
+        public void RunWholeSearchEngineUsingTestDataAndJustOutput(string testName)
+        {
             // arrange
-            var wordSearchBox = new WordSearchBox(testData.Letters, testData.Width);
+            var wordSearchBox = new WordSearchBox(getLetters(testName), getWidth(testName));
             var searchEngine = new SearchEngine(wordSearchBox);
             var resultsOutput = new SearchResultsOutput();
 
@@ -41,17 +66,5 @@ namespace Model.Test {
             // assert
             resultsOutput.OutputAllFoundWords(searchEngine.FoundWords);
         }
-
-        public IEnumerable<TestData> GetTestData()
-        {
-            yield return new TestData { Letters = Resources.Test1Letters, Width = int.Parse(Resources.Test1Width) };
-            yield return new TestData { Letters = Resources.Test2Letters, Width = int.Parse(Resources.Test2Width) };
-        }
-    }
-
-    public class TestData
-    {
-        public string Letters { get; set; }
-        public int Width { get; set; }
     }
 }

@@ -117,20 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test1Letters" xml:space="preserve">
+  <data name="ElectronicsLetters" xml:space="preserve">
+    <value>tpircsavajlexipigeliamemorymmousenilcrabksatxinuyhstfgdndirectoryetaoeoopowersupplynirfrloucoasaevasscretndgkiropktypshruwweelcddecpreeahycaatrmanrimalltdrperreatbolenmeieketseephhrckiprafcvriirsulmeebeiarriabootmbornstwraprgrtnwbingonoosgndloodintioisangmakaularaoteanrcaeasptltaiponrndusnfirewallwreikooctfdprdhtooteulbyte</value>
+  </data>
+  <data name="ElectronicsWidth" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="ElectronicsWords" xml:space="preserve">
+    <value>application;backup;binary;bluetooth;boot;byte;chat;click;cookie;cursor;data;defragment;directory;disk;drive;dos;drag;email;encryption;file;firewall;folder;gif;google;html;icon;internet;javascript;kernal;lcd;login;memory;monitor;mouse;nanosecond;network;partition;paste;pdf;pixel;power;supply;programmer;router;save;scanner;security;shareware;software;spam;taskbar;thumbnail;unix;wallpaper;wireless</value>
+  </data>
+  <data name="TestLetters" xml:space="preserve">
     <value>ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn</value>
   </data>
-  <data name="Test1Width" xml:space="preserve">
+  <data name="TestWidth" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="Test2Letters" xml:space="preserve">
+  <data name="WikipediaLetters" xml:space="preserve">
     <value>wverticallrooafflsabacriliatoandodkonwdcdrkesooddkoeepzegliwmsiihoaeraalrkrrirerkodidedrcdhelwsleuth</value>
   </data>
-  <data name="Test2Width" xml:space="preserve">
+  <data name="WikipediaWidth" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="Test2Words" xml:space="preserve">
-    <value>Week;Find;Random;Sleuth;Backward;Vertical;Diagonal;Wikipedia;Horizontal;Word;Search</value>
+  <data name="WikipediaWords" xml:space="preserve">
+    <value>Find;Random;Sleuth;Backward;Vertical;Diagonal;Horizontal;Word;Search</value>
   </data>
   <data name="WordListFilename" xml:space="preserve">
     <value>Resources\wordsEn.txt</value>

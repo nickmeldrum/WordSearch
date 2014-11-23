@@ -29,7 +29,7 @@ namespace Windows {
             workerThread.RunWorkerCompleted += workerThread_RunWorkerCompleted;
             workerThread.WorkerSupportsCancellation = true;
 
-            wordSearchBox = new WordSearchBox(Resources.Test1Letters, int.Parse(Resources.Test1Width));
+            wordSearchBox = new WordSearchBox(Resources.TestLetters, int.Parse(Resources.TestWidth));
             searchEngine = new SearchEngine(wordSearchBox);
             searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
             searchEngine.FoundWord += SearchEngineFoundWord;

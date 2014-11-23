@@ -61,47 +61,74 @@ namespace Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to tpircsavajlexipigeliamemorymmousenilcrabksatxinuyhstfgdndirectoryetaoeoopowersupplynirfrloucoasaevasscretndgkiropktypshruwweelcddecpreeahycaatrmanrimalltdrperreatbolenmeieketseephhrckiprafcvriirsulmeebeiarriabootmbornstwraprgrtnwbingonoosgndloodintioisangmakaularaoteanrcaeasptltaiponrndusnfirewallwreikooctfdprdhtooteulbyte.
+        /// </summary>
+        public static string ElectronicsLetters {
+            get {
+                return ResourceManager.GetString("ElectronicsLetters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 18.
+        /// </summary>
+        public static string ElectronicsWidth {
+            get {
+                return ResourceManager.GetString("ElectronicsWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to application;backup;binary;bluetooth;boot;byte;chat;click;cookie;cursor;data;defragment;directory;disk;drive;dos;drag;email;encryption;file;firewall;folder;gif;google;html;icon;internet;javascript;kernal;lcd;login;memory;monitor;mouse;nanosecond;network;partition;paste;pdf;pixel;power;supply;programmer;router;save;scanner;security;shareware;software;spam;taskbar;thumbnail;unix;wallpaper;wireless.
+        /// </summary>
+        public static string ElectronicsWords {
+            get {
+                return ResourceManager.GetString("ElectronicsWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn.
         /// </summary>
-        public static string Test1Letters {
+        public static string TestLetters {
             get {
-                return ResourceManager.GetString("Test1Letters", resourceCulture);
+                return ResourceManager.GetString("TestLetters", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 15.
         /// </summary>
-        public static string Test1Width {
+        public static string TestWidth {
             get {
-                return ResourceManager.GetString("Test1Width", resourceCulture);
+                return ResourceManager.GetString("TestWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to wverticallrooafflsabacriliatoandodkonwdcdrkesooddkoeepzegliwmsiihoaeraalrkrrirerkodidedrcdhelwsleuth.
         /// </summary>
-        public static string Test2Letters {
+        public static string WikipediaLetters {
             get {
-                return ResourceManager.GetString("Test2Letters", resourceCulture);
+                return ResourceManager.GetString("WikipediaLetters", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 10.
         /// </summary>
-        public static string Test2Width {
+        public static string WikipediaWidth {
             get {
-                return ResourceManager.GetString("Test2Width", resourceCulture);
+                return ResourceManager.GetString("WikipediaWidth", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Week;Find;Random;Sleuth;Backward;Vertical;Diagonal;Wikipedia;Horizontal;Word;Search.
+        ///   Looks up a localized string similar to Find;Random;Sleuth;Backward;Vertical;Diagonal;Horizontal;Word;Search.
         /// </summary>
-        public static string Test2Words {
+        public static string WikipediaWords {
             get {
-                return ResourceManager.GetString("Test2Words", resourceCulture);
+                return ResourceManager.GetString("WikipediaWords", resourceCulture);
             }
         }
         
