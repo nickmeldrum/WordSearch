@@ -6,9 +6,27 @@ namespace Model.Test {
 
     [TestFixture]
     public class SearchEngineTestFixture {
+        [Test]
+        public void SearchEngineFindsExpectedWordsInTestData()
+        {
+            // arrange
+            var wordSearchBox = new WordSearchBox(Resources.Test2Letters, int.Parse(Resources.Test2Width));
+            var searchEngine = new SearchEngine(wordSearchBox);
+            var expectedWords = Resources.Test2Words.ToLowerInvariant().Split(';');
+
+            // act
+            searchEngine.CheckAllPossibleWords();
+
+            // assert
+            foreach (var expectedWord in expectedWords)
+            {
+                if (!searchEngine.FoundWords.Contains(expectedWord))
+                    Assert.Fail("Expected word {0} wasn't found", expectedWord);
+            }
+        }
 
         [TestCaseSource("GetTestData")]
-        public void RunWholeSearchEngineUsingTest1DataNoTesting(TestData testData) {
+        public void RunWholeSearchEngineUsingTestDataAndJustOutput(TestData testData) {
             // arrange
             var wordSearchBox = new WordSearchBox(testData.Letters, testData.Width);
             var searchEngine = new SearchEngine(wordSearchBox);
