@@ -17,11 +17,13 @@ namespace Model.Search {
 
         public bool Cancel { get; set; }
 
-        private readonly WordList wordList = new WordList();
+        private readonly WordList wordList;
         private readonly WordSearchBox wordSearchBox;
 
-        public SearchEngine(WordSearchBox wordSearchBox) {
+        public SearchEngine(WordSearchBox wordSearchBox, WordList wordList)
+        {
             this.wordSearchBox = wordSearchBox;
+            this.wordList = wordList;
         }
 
         public void CheckAllPossibleWords() {

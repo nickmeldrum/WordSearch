@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Model {
     public class WordList {
-        public IList<string> Words { get; private set; }
+        public List<string> Words { get; private set; }
 
         public WordList() {
             InitialiseWordList(Resources.WordListFilename);
@@ -13,7 +13,7 @@ namespace Model {
             InitialiseWordList(filename);
         }
 
-        public WordList(IList<string> wordList) {
+        public WordList(List<string> wordList) {
             Words = wordList;
         }
 
@@ -28,6 +28,11 @@ namespace Model {
 
         public bool IsInWordList(string word) {
             return Words != null && Words.Contains(word);
+        }
+
+        public void AddWordsToList(IList<string> words)
+        {
+           Words.AddRange(words);
         }
     }
 }

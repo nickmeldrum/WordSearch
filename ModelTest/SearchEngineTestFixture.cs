@@ -3,7 +3,6 @@ using Model.Search;
 using NUnit.Framework;
 
 namespace Model.Test {
-    using System.Collections.Generic;
     using System.Linq;
 
     [TestFixture]
@@ -15,8 +14,10 @@ namespace Model.Test {
         {
             // arrange
             var wordSearchBox = new WordSearchBox(getLetters(testName), getWidth(testName));
-            var searchEngine = new SearchEngine(wordSearchBox);
             var expectedWords = getExpectedWords(testName);
+            var wordList = new WordList();
+            wordList.AddWordsToList(expectedWords);
+            var searchEngine = new SearchEngine(wordSearchBox, wordList);
 
             // act
             searchEngine.CheckAllPossibleWords();
@@ -54,7 +55,8 @@ namespace Model.Test {
         {
             // arrange
             var wordSearchBox = new WordSearchBox(getLetters(testName), getWidth(testName));
-            var searchEngine = new SearchEngine(wordSearchBox);
+            var wordList = new WordList();
+            var searchEngine = new SearchEngine(wordSearchBox, wordList);
             var resultsOutput = new SearchResultsOutput();
 
             searchEngine.BoxesBeingSearched += resultsOutput.OutputBoxesBeingSearched;

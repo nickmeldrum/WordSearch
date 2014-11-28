@@ -30,7 +30,7 @@ namespace Windows {
             workerThread.WorkerSupportsCancellation = true;
 
             wordSearchBox = new WordSearchBox(Resources.TestLetters, int.Parse(Resources.TestWidth));
-            searchEngine = new SearchEngine(wordSearchBox);
+            searchEngine = new SearchEngine(wordSearchBox, new WordList());
             searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
             searchEngine.FoundWord += SearchEngineFoundWord;
 
