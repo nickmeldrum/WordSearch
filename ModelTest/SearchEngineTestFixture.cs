@@ -10,7 +10,7 @@ namespace Model.Test {
     public class SearchEngineTestFixture
     {
         [TestCase("Wikipedia")]
-        [TestCase("Electronics")]
+        [TestCase("Computers")]
         public void SearchEngineFindsExpectedWordsInTestData(string testName)
         {
             // arrange

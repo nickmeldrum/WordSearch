@@ -63,27 +63,27 @@ namespace Model {
         /// <summary>
         ///   Looks up a localized string similar to tpircsavajlexipigeliamemorymmousenilcrabksatxinuyhstfgdndirectoryetaoeoopowersupplynirfrloucoasaevasscretndgkiropktypshruwweelcddecpreeahycaatrmanrimalltdrperreatbolenmeieketseephhrckiprafcvriirsulmeebeiarriabootmbornstwraprgrtnwbingonoosgndloodintioisangmakaularaoteanrcaeasptltaiponrndusnfirewallwreikooctfdprdhtooteulbyte.
         /// </summary>
-        public static string ElectronicsLetters {
+        public static string ComputersLetters {
             get {
-                return ResourceManager.GetString("ElectronicsLetters", resourceCulture);
+                return ResourceManager.GetString("ComputersLetters", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 18.
         /// </summary>
-        public static string ElectronicsWidth {
+        public static string ComputersWidth {
             get {
-                return ResourceManager.GetString("ElectronicsWidth", resourceCulture);
+                return ResourceManager.GetString("ComputersWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to application;backup;binary;bluetooth;boot;byte;chat;click;cookie;cursor;data;defragment;directory;disk;drive;dos;drag;email;encryption;file;firewall;folder;gif;google;html;icon;internet;javascript;kernal;lcd;login;memory;monitor;mouse;nanosecond;network;partition;paste;pdf;pixel;power;supply;programmer;router;save;scanner;security;shareware;software;spam;taskbar;thumbnail;unix;wallpaper;wireless.
         /// </summary>
-        public static string ElectronicsWords {
+        public static string ComputersWords {
             get {
-                return ResourceManager.GetString("ElectronicsWords", resourceCulture);
+                return ResourceManager.GetString("ComputersWords", resourceCulture);
             }
         }
         

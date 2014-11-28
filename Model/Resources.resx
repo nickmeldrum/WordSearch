@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ElectronicsLetters" xml:space="preserve">
+  <data name="ComputersLetters" xml:space="preserve">
     <value>tpircsavajlexipigeliamemorymmousenilcrabksatxinuyhstfgdndirectoryetaoeoopowersupplynirfrloucoasaevasscretndgkiropktypshruwweelcddecpreeahycaatrmanrimalltdrperreatbolenmeieketseephhrckiprafcvriirsulmeebeiarriabootmbornstwraprgrtnwbingonoosgndloodintioisangmakaularaoteanrcaeasptltaiponrndusnfirewallwreikooctfdprdhtooteulbyte</value>
   </data>
-  <data name="ElectronicsWidth" xml:space="preserve">
+  <data name="ComputersWidth" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="ElectronicsWords" xml:space="preserve">
+  <data name="ComputersWords" xml:space="preserve">
     <value>application;backup;binary;bluetooth;boot;byte;chat;click;cookie;cursor;data;defragment;directory;disk;drive;dos;drag;email;encryption;file;firewall;folder;gif;google;html;icon;internet;javascript;kernal;lcd;login;memory;monitor;mouse;nanosecond;network;partition;paste;pdf;pixel;power;supply;programmer;router;save;scanner;security;shareware;software;spam;taskbar;thumbnail;unix;wallpaper;wireless</value>
   </data>
   <data name="TestLetters" xml:space="preserve">
