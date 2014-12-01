@@ -8,6 +8,7 @@
     {
         [TestCase("Wikipedia")]
         [TestCase("Computers")]
+        [Ignore]
         public void SearchEngineFindsExpectedWordsInTestData(string testName)
         {
             // arrange
@@ -28,6 +29,7 @@
 
 
         [TestCase("Test")]
+        [Ignore]
         public void RunWholeSearchEngineUsingTestDataAndJustOutput(string testName)
         {
             // arrange
