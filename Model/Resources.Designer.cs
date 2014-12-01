@@ -106,6 +106,15 @@ namespace Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string TestWords {
+            get {
+                return ResourceManager.GetString("TestWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to wverticallrooafflsabacriliatoandodkonwdcdrkesooddkoeepzegliwmsiihoaeraalrkrrirerkodidedrcdhelwsleuth.
         /// </summary>
         public static string WikipediaLetters {

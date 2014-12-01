@@ -1,9 +1,10 @@
 using System;
 using Model.IndividualWords;
-using Model.Search;
 using NUnit.Framework;
 
 namespace Model.Test.IndividualWordCheck {
+    using Model.Search;
+
     public abstract class IndividualWordCheckTestFixtureBase {
         private Tuple<string, bool> TestAWordCheck(WordSearchBox wordSearchBox, int length, IWordConstructor wordConstructor) {
             var searchEngine = new SearchEngine(wordSearchBox, new WordList());

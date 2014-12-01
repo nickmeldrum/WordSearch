@@ -56,8 +56,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Search\IEngineData.cs" />
     <Compile Include="Search\MaxLettersToSearch.cs" />
     <Compile Include="Search\SearchEngine.cs" />
+    <Compile Include="Search\SearchEngineFactory.cs" />
     <Compile Include="WordSearchBox.cs" />
     <Compile Include="WordList.cs" />
     <Compile Include="WordSearchResourceData.cs" />

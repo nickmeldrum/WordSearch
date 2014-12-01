@@ -62,7 +62,8 @@
     <Compile Include="MaxLetters\MaxLettersForBoxTestFixtureBase.cs" />
     <Compile Include="MaxLetters\MaxLettersForSmall4By4BoxTestFixture.cs" />
     <Compile Include="MaxLetters\MaxLettersForSmall6By2BoxTestFixture.cs" />
-    <Compile Include="SearchEngine\SearchEngineTestFixture.cs" />
+    <Compile Include="SearchEngines\SearchEngineTestFixture.cs" />
+    <Compile Include="SearchEngines\SearchEngineWholeWordSearchesTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchResultsOutput.cs" />
     <Compile Include="WordLists\WordListTestFixture.cs" />

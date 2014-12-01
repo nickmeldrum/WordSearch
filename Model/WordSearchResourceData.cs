@@ -1,8 +1,11 @@
 ﻿namespace Model
 {
     using System;
+    using System.Collections.Generic;
 
-    public class WordSearchResourceData
+    using Model.Search;
+
+    public class WordSearchResourceData : IEngineData
     {
         private readonly string testName;
 
@@ -27,7 +30,7 @@
             }
         }
 
-        public string[] ExpectedWords
+        public IList<string> ExpectedWords
         {
             get
             {
@@ -38,7 +41,7 @@
         private string getResourceString(string name)
         {
             var resourceString = Resources.ResourceManager.GetString(name);
-            if (string.IsNullOrWhiteSpace(resourceString)) throw new ArgumentException("Resource not found", name);
+            if (resourceString == null) throw new ArgumentException("Resource not found", name);
             return resourceString.ToLowerInvariant().Trim();
         }
     }

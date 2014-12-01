@@ -1,10 +1,10 @@
-﻿namespace Model.Test {
+﻿namespace Model.Test.SearchEngines {
+    using System.Linq;
     using Model.Search;
     using NUnit.Framework;
-    using System.Linq;
 
     [TestFixture]
-    public class SearchEngineTestFixture
+    public class SearchEngineWholeWordSearchesTestFixture
     {
         [TestCase("Wikipedia")]
         [TestCase("Computers")]
@@ -12,16 +12,12 @@
         public void SearchEngineFindsExpectedWordsInTestData(string testName)
         {
             // arrange
-            var testData = new WordSearchResourceData(testName);
-            var wordSearchBox = new WordSearchBox(testData.Letters, testData.Width);
-            var expectedWords = testData.ExpectedWords;
-            var wordList = new WordList();
-            wordList.AddWordsToList(expectedWords);
-            var searchEngine = new SearchEngine(wordSearchBox, wordList);
+            var data = new WordSearchResourceData(testName);
+            var searchEngine = SearchEngineFactory.Get(data);
 
             // act
             searchEngine.CheckAllPossibleWords();
-            var wordsNotFound = expectedWords.Where(expectedWord => !searchEngine.FoundWords.Contains(expectedWord)).ToList();
+            var wordsNotFound = data.ExpectedWords.Where(expectedWord => !searchEngine.FoundWords.Contains(expectedWord)).ToList();
 
             // assert
             Assert.IsEmpty(wordsNotFound, "Expected words weren't found", wordsNotFound);
@@ -33,10 +29,8 @@
         public void RunWholeSearchEngineUsingTestDataAndJustOutput(string testName)
         {
             // arrange
-            var testData = new WordSearchResourceData(testName);
-            var wordSearchBox = new WordSearchBox(testData.Letters, testData.Width);
-            var wordList = new WordList();
-            var searchEngine = new SearchEngine(wordSearchBox, wordList);
+            var data = new WordSearchResourceData(testName);
+            var searchEngine = SearchEngineFactory.Get(data);
             var resultsOutput = new SearchResultsOutput();
 
             searchEngine.BoxesBeingSearched += resultsOutput.OutputBoxesBeingSearched;
