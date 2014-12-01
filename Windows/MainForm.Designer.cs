@@ -69,6 +69,7 @@
             this.wordSearchPictureBox.Size = new System.Drawing.Size(550, 550);
             this.wordSearchPictureBox.TabIndex = 4;
             this.wordSearchPictureBox.TabStop = false;
+            this.wordSearchPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.wordSearchPictureBox_Paint);
             // 
             // MainForm
             // 
@@ -87,7 +88,6 @@
             this.Text = "Word Search";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.wordSearchPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
