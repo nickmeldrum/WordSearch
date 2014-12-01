@@ -14,6 +14,9 @@
         [TestCase("czzazztzz", 3, new[] { "cat" })]
         [TestCase("tzzazzczz", 3, new[] { "cat" })]
         [TestCase("catozzwzz", 3, new[] { "cat", "cow" })]
+        [TestCase("czzzazzzr", 3, new[] { "car" })]
+        [TestCase("rzzzazzzc", 3, new[] { "car" })]
+        [TestCase("ratzazczc", 3, new[] { "rat", "cat", "car" })]
         public void SearchEngineWordsAreFound(string letters, int width, string[] expectedWords)
         {
             // arrange
