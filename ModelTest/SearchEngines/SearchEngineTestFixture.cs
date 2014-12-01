@@ -10,6 +10,10 @@
     public class SearchEngineTestFixture
     {
         [TestCase("aword", 5, new[] { "word" })]
+        [TestCase("adrow", 5, new[] { "word" })]
+        [TestCase("czzazztzz", 3, new[] { "cat" })]
+        [TestCase("tzzazzczz", 3, new[] { "cat" })]
+        [TestCase("catozzwzz", 3, new[] { "cat", "cow" })]
         public void SearchEngineWordsAreFound(string letters, int width, string[] expectedWords)
         {
             // arrange
@@ -25,6 +29,7 @@
         }
 
         [TestCase("award", 5, new[] { "word" })]
+        [TestCase("catozzwzz", 3, new[] { "cat", "cow", "dog" })]
         public void SearchEngineWordsAreNotFound(string letters, int width, string[] expectedWords)
         {
             // arrange
@@ -36,7 +41,7 @@
             var wordsNotFound = data.ExpectedWords.Where(expectedWord => !searchEngine.FoundWords.Contains(expectedWord)).ToList();
 
             // assert
-            CollectionAssert.AreEquivalent(expectedWords, wordsNotFound, "Expected words were found");
+            Assert.IsNotEmpty(wordsNotFound, "All words were found");
         }
     }
 }
