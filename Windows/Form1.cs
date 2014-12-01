@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Model;
 using Model.Search;
 
 namespace Windows {
+    using Model.Data;
+
     public partial class MainForm : Form {
         public MainForm() {
             InitializeComponent();
         }
 
-        private WordSearchBox wordSearchBox;
+        private IEngineData searchEngineData;
         private SearchEngine searchEngine;
         private BackgroundWorker workerThread;
 
@@ -29,8 +30,8 @@ namespace Windows {
             workerThread.RunWorkerCompleted += workerThread_RunWorkerCompleted;
             workerThread.WorkerSupportsCancellation = true;
 
-            wordSearchBox = new WordSearchBox(Resources.TestLetters, int.Parse(Resources.TestWidth));
-            searchEngine = new SearchEngine(wordSearchBox, new WordList());
+            this.searchEngineData = new WordSearchResourceData("Wikipedia");
+            searchEngine = SearchEngineFactory.Get(this.searchEngineData);
             searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
             searchEngine.FoundWord += SearchEngineFoundWord;
 
@@ -72,22 +73,22 @@ namespace Windows {
         private void DrawBox() {
             //searchBoxPanel.Controls.Clear();
             canvas = wordSearchPictureBox.CreateGraphics();
-            var letterWidth = wordSearchPictureBox.Width / wordSearchBox.Width;
+            var letterWidth = wordSearchPictureBox.Width / this.searchEngineData.Width;
 
-            for (var i = 0; i < wordSearchBox.Letters.Length; i++) {
-                var currentRow = i / wordSearchBox.Width;
-                var currentColumn = i % wordSearchBox.Width;
+            for (var i = 0; i < this.searchEngineData.Letters.Length; i++) {
+                var currentRow = i / this.searchEngineData.Width;
+                var currentColumn = i % this.searchEngineData.Width;
 
                 canvas.DrawRectangle(pen,
                     letterWidth * currentColumn, letterWidth * currentRow,
                     letterWidth, letterWidth);
-                canvas.DrawString(wordSearchBox.Letters[i].ToString(), font, brush, letterWidth * currentColumn, letterWidth * currentRow);
+                canvas.DrawString(this.searchEngineData.Letters[i].ToString(), font, brush, letterWidth * currentColumn, letterWidth * currentRow);
 
                 //var label = new Label {
                 //    Location = new Point(letterWidth * currentColumn, letterWidth * currentRow),
                 //    Size = new Size(letterWidth, letterWidth),
                 //    BorderStyle = BorderStyle.FixedSingle,
-                //    Text = wordSearchBox.Letters[i].ToString(),
+                //    Text = searchEngineData.Letters[i].ToString(),
                 //    BackColor = Color.Khaki
                 //};
                 //searchBoxPanel.Controls.Add(label);
@@ -122,22 +123,22 @@ namespace Windows {
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e) {
-            var letterWidth = wordSearchPictureBox.Width / wordSearchBox.Width;
+            var letterWidth = wordSearchPictureBox.Width / this.searchEngineData.Width;
 
-            for (var i = 0; i < wordSearchBox.Letters.Length; i++) {
-                var currentRow = i / wordSearchBox.Width;
-                var currentColumn = i % wordSearchBox.Width;
+            for (var i = 0; i < this.searchEngineData.Letters.Length; i++) {
+                var currentRow = i / this.searchEngineData.Width;
+                var currentColumn = i % this.searchEngineData.Width;
 
                 e.Graphics.DrawRectangle(pen,
                     letterWidth * currentColumn, letterWidth * currentRow,
                     letterWidth, letterWidth);
-                e.Graphics.DrawString(wordSearchBox.Letters[i].ToString(), font, brush, letterWidth * currentColumn, letterWidth * currentRow);
+                e.Graphics.DrawString(this.searchEngineData.Letters[i].ToString(), font, brush, letterWidth * currentColumn, letterWidth * currentRow);
 
                 //var label = new Label {
                 //    Location = new Point(letterWidth * currentColumn, letterWidth * currentRow),
                 //    Size = new Size(letterWidth, letterWidth),
                 //    BorderStyle = BorderStyle.FixedSingle,
-                //    Text = wordSearchBox.Letters[i].ToString(),
+                //    Text = searchEngineData.Letters[i].ToString(),
                 //    BackColor = Color.Khaki
                 //};
                 //searchBoxPanel.Controls.Add(label);
