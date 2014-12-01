@@ -1,8 +1,6 @@
-﻿using System;
-using Model.Search;
-using NUnit.Framework;
-
-namespace Model.Test {
+﻿namespace Model.Test {
+    using Model.Search;
+    using NUnit.Framework;
     using System.Linq;
 
     [TestFixture]
@@ -13,8 +11,9 @@ namespace Model.Test {
         public void SearchEngineFindsExpectedWordsInTestData(string testName)
         {
             // arrange
-            var wordSearchBox = new WordSearchBox(getLetters(testName), getWidth(testName));
-            var expectedWords = getExpectedWords(testName);
+            var testData = new WordSearchResourceData(testName);
+            var wordSearchBox = new WordSearchBox(testData.GetLetters(), testData.GetWidth());
+            var expectedWords = testData.GetExpectedWords();
             var wordList = new WordList();
             wordList.AddWordsToList(expectedWords);
             var searchEngine = new SearchEngine(wordSearchBox, wordList);
@@ -25,36 +24,15 @@ namespace Model.Test {
 
             // assert
             Assert.IsEmpty(wordsNotFound, "Expected words weren't found", wordsNotFound);
-
         }
 
-        private string getLetters(string testName)
-        {
-            return getResourceString(testName + "Letters");
-        }
-
-        private int getWidth(string testName)
-        {
-            return int.Parse(getResourceString(testName + "Width"));
-        }
-
-        private string[] getExpectedWords(string testName)
-        {
-            return getResourceString(testName + "Words").Split(';');
-        }
-
-        private string getResourceString(string name)
-        {
-            var resourceString = Resources.ResourceManager.GetString(name);
-            if (string.IsNullOrWhiteSpace(resourceString)) throw new ArgumentException("Resource not found", name);
-            return resourceString.ToLowerInvariant().Trim();
-        }
 
         [TestCase("Test")]
         public void RunWholeSearchEngineUsingTestDataAndJustOutput(string testName)
         {
             // arrange
-            var wordSearchBox = new WordSearchBox(getLetters(testName), getWidth(testName));
+            var testData = new WordSearchResourceData(testName);
+            var wordSearchBox = new WordSearchBox(testData.GetLetters(), testData.GetWidth());
             var wordList = new WordList();
             var searchEngine = new SearchEngine(wordSearchBox, wordList);
             var resultsOutput = new SearchResultsOutput();

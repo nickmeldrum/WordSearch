@@ -60,6 +60,7 @@
     <Compile Include="Search\SearchEngine.cs" />
     <Compile Include="WordSearchBox.cs" />
     <Compile Include="WordList.cs" />
+    <Compile Include="WordSearchResourceData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
