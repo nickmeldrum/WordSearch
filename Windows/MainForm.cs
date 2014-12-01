@@ -1,5 +1,7 @@
 ﻿namespace Windows
 {
+    using System.Linq;
+
     using Model.Data;
     using Model.Search;
     using System;
@@ -20,10 +22,13 @@
         private SearchEngine searchEngine;
         private BackgroundWorker workerThread;
 
-        private Pen pen = new Pen(Color.Blue, 4F);
-        private Brush brush = new SolidBrush(Color.Blue);
+        private Pen gridPen = new Pen(Color.IndianRed, 4F);
+        private Brush foundWordBackgroundBrush = new SolidBrush(Color.Khaki);
+        private Brush letterBrush = new SolidBrush(Color.Indigo);
 
         private Dictionary<int, Color> lastBoxesSearched = new Dictionary<int, Color>();
+        private int letterWidth;
+        private IList<int> indexesFound = new List<int>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -37,6 +42,7 @@
             searchEngine = SearchEngineFactory.Get(this.searchEngineData);
             searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
             searchEngine.FoundWord += SearchEngineFoundWord;
+            letterWidth = wordSearchPictureBox.Width / this.searchEngineData.Width;
         }
 
         void workerThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -50,11 +56,13 @@
             Action appendFoundWordToTextBox = () => foundWordsTextbox.AppendText(word + Environment.NewLine);
             Invoke(appendFoundWordToTextBox);
 
-            foreach (var i in charIndexes)
+            foreach (var i in charIndexes.Where(i => !this.indexesFound.Contains(i)))
             {
-                lastBoxesSearched[i] = Color.DarkSeaGreen;
-                //searchBoxPanel.Controls[i].BackColor = Color.DarkSeaGreen;
+                this.indexesFound.Add(i);
             }
+
+            Action highlightFoundWordFunc = () => wordSearchPictureBox.Invalidate(false);
+            Invoke(highlightFoundWordFunc);
         }
 
         private void SearchEngineBoxesBeingSearched(string direction, List<int> charIndexes)
@@ -71,6 +79,7 @@
         private void searchButton_Click(object sender, EventArgs e)
         {
             foundWordsTextbox.Clear();
+            indexesFound.Clear();
             cancelButton.Enabled = true;
             searchButton.Enabled = false;
 
@@ -95,7 +104,6 @@
 
         private void wordSearchPictureBox_Paint(object sender, PaintEventArgs e)
         {
-            var letterWidth = wordSearchPictureBox.Width / this.searchEngineData.Width;
             var font = new Font("consolas", 32);
 
             for (var i = 0; i < this.searchEngineData.Letters.Length; i++)
@@ -103,13 +111,18 @@
                 var currentRow = i / this.searchEngineData.Width;
                 var currentColumn = i % this.searchEngineData.Width;
 
-                e.Graphics.DrawRectangle(pen,
+                if (indexesFound.Contains(i))
+                    e.Graphics.FillRectangle(foundWordBackgroundBrush,
+                        letterWidth * currentColumn, letterWidth * currentRow,
+                        letterWidth, letterWidth);
+
+                e.Graphics.DrawRectangle(gridPen,
                     letterWidth * currentColumn, letterWidth * currentRow,
                     letterWidth, letterWidth);
 
                 e.Graphics.DrawString(
                     this.searchEngineData.Letters[i].ToString(CultureInfo.InvariantCulture),
-                    font, brush,
+                    font, letterBrush,
                     (letterWidth * currentColumn), // + (letterWidth / 2),
                     (letterWidth * currentRow)// + (letterWidth / 2)
                 );

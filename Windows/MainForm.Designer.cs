@@ -55,6 +55,8 @@
             // 
             // foundWordsTextbox
             // 
+            this.foundWordsTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.foundWordsTextbox.Location = new System.Drawing.Point(568, 70);
             this.foundWordsTextbox.Multiline = true;
             this.foundWordsTextbox.Name = "foundWordsTextbox";
@@ -64,6 +66,9 @@
             // 
             // wordSearchPictureBox
             // 
+            this.wordSearchPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.wordSearchPictureBox.Location = new System.Drawing.Point(12, 14);
             this.wordSearchPictureBox.Name = "wordSearchPictureBox";
             this.wordSearchPictureBox.Size = new System.Drawing.Size(550, 550);
