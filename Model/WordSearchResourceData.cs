@@ -11,19 +11,28 @@
             this.testName = testName;
         }
 
-        public string GetLetters()
+        public string Letters
         {
-            return getResourceString(testName + "Letters");
+            get
+            {
+                return this.getResourceString(this.testName + "Letters");
+            }
         }
 
-        public int GetWidth()
+        public int Width
         {
-            return int.Parse(getResourceString(testName + "Width"));
+            get
+            {
+                return int.Parse(this.getResourceString(this.testName + "Width"));
+            }
         }
 
-        public string[] GetExpectedWords()
+        public string[] ExpectedWords
         {
-            return getResourceString(testName + "Words").Split(';');
+            get
+            {
+                return this.getResourceString(this.testName + "Words").Split(';');
+            }
         }
 
         private string getResourceString(string name)

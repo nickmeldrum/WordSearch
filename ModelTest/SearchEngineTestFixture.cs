@@ -12,8 +12,8 @@
         {
             // arrange
             var testData = new WordSearchResourceData(testName);
-            var wordSearchBox = new WordSearchBox(testData.GetLetters(), testData.GetWidth());
-            var expectedWords = testData.GetExpectedWords();
+            var wordSearchBox = new WordSearchBox(testData.Letters, testData.Width);
+            var expectedWords = testData.ExpectedWords;
             var wordList = new WordList();
             wordList.AddWordsToList(expectedWords);
             var searchEngine = new SearchEngine(wordSearchBox, wordList);
@@ -32,7 +32,7 @@
         {
             // arrange
             var testData = new WordSearchResourceData(testName);
-            var wordSearchBox = new WordSearchBox(testData.GetLetters(), testData.GetWidth());
+            var wordSearchBox = new WordSearchBox(testData.Letters, testData.Width);
             var wordList = new WordList();
             var searchEngine = new SearchEngine(wordSearchBox, wordList);
             var resultsOutput = new SearchResultsOutput();
