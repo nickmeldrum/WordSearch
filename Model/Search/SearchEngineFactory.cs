@@ -1,5 +1,7 @@
 ﻿namespace Model.Search
 {
+    using Model.Data;
+
     public static class SearchEngineFactory
     {
         public static SearchEngine Get(IEngineData searchEngineData)

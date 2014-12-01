@@ -1,16 +1,19 @@
 ﻿namespace Model.Test.SearchEngines
 {
     using System.Linq;
+
+    using Model.Data;
     using Model.Search;
     using NUnit.Framework;
 
     [TestFixture]
     public class SearchEngineTestFixture
     {
-        public void SearchEngine(string testName)
+        [Test]
+        public void SearchEngine()
         {
             // arrange
-            var data = new WordSearchResourceData(testName);
+            var data = new SearchEngineData("", 1);
             var searchEngine = SearchEngineFactory.Get(data);
 
             // act

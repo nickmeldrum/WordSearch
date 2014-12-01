@@ -32,6 +32,7 @@ namespace Model {
 
         public void AddWordsToList(IList<string> words)
         {
+            if (words == null) return;
            Words.AddRange(words);
         }
     }

@@ -1,9 +1,7 @@
-﻿namespace Model
+﻿namespace Model.Data
 {
     using System;
     using System.Collections.Generic;
-
-    using Model.Search;
 
     public class WordSearchResourceData : IEngineData
     {

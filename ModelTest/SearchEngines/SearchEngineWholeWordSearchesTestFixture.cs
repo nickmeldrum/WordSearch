@@ -1,5 +1,7 @@
 ﻿namespace Model.Test.SearchEngines {
     using System.Linq;
+
+    using Model.Data;
     using Model.Search;
     using NUnit.Framework;
 

@@ -1,4 +1,4 @@
-﻿namespace Model.Search
+﻿namespace Model.Data
 {
     using System.Collections.Generic;
 

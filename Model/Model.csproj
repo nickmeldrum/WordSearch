@@ -56,13 +56,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Search\IEngineData.cs" />
+    <Compile Include="Data\WordSearchResourceData.cs" />
+    <Compile Include="Data\IEngineData.cs" />
     <Compile Include="Search\MaxLettersToSearch.cs" />
     <Compile Include="Search\SearchEngine.cs" />
+    <Compile Include="Data\SearchEngineData.cs" />
     <Compile Include="Search\SearchEngineFactory.cs" />
     <Compile Include="WordSearchBox.cs" />
     <Compile Include="WordList.cs" />
-    <Compile Include="WordSearchResourceData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
