@@ -1,7 +1,6 @@
 ﻿namespace Windows
 {
     using System.Linq;
-
     using Model.Data;
     using Model.Search;
     using System;
@@ -38,19 +37,12 @@
             workerThread.DoWork += workerThread_DoWork;
             workerThread.RunWorkerCompleted += workerThread_RunWorkerCompleted;
             workerThread.WorkerSupportsCancellation = true;
-
-            this.searchEngineData = new WordSearchResourceData("Wikipedia");
-            //this.searchEngineData = new SearchEngineData("catzzzzzz", 3, new[] { "cat" });
-            searchEngine = SearchEngineFactory.Get(this.searchEngineData);
-            searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
-            searchEngine.FoundWord += SearchEngineFoundWord;
-            letterWidth = wordSearchPictureBox.Width / this.searchEngineData.Width;
         }
 
         void workerThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            searchButton.Enabled = true;
-            cancelButton.Enabled = false;
+            searchToolStripMenuItem.Enabled = true;
+            cancelToolStripMenuItem.Enabled = false;
             indexesBeingSearched.Clear();
             wordSearchPictureBox.Invalidate(false);
         }
@@ -75,17 +67,6 @@
             Invoke(redraw);
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            foundWordsTextbox.Clear();
-            indexesBeingSearched.Clear();
-            indexesFound.Clear();
-            cancelButton.Enabled = true;
-            searchButton.Enabled = false;
-
-            workerThread.RunWorkerAsync();
-        }
-
         void workerThread_DoWork(object sender, DoWorkEventArgs e)
         {
             searchEngine.CheckAllPossibleWords();
@@ -93,17 +74,14 @@
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            searchEngine.Cancel = true;
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            searchEngine.Cancel = true;
-            searchButton.Enabled = true;
+            if (searchEngine != null)
+                searchEngine.Cancel = true;
         }
 
         private void wordSearchPictureBox_Paint(object sender, PaintEventArgs e)
         {
+            if (this.searchEngineData == null) return;
+
             var font = new Font("consolas", 32);
 
             for (var i = 0; i < this.searchEngineData.Letters.Length; i++)
@@ -124,6 +102,75 @@
                     font, letterBrush, point
                 );
             }
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            searchEngine = SearchEngineFactory.Get(this.searchEngineData);
+            searchEngine.BoxesBeingSearched += SearchEngineBoxesBeingSearched;
+            searchEngine.FoundWord += SearchEngineFoundWord;
+            this.ClearFormState();
+            SetButtonStateToOperating();
+            workerThread.RunWorkerAsync();
+        }
+
+        private void ClearFormState()
+        {
+            this.letterWidth = this.wordSearchPictureBox.Width / this.searchEngineData.Width;
+            this.foundWordsTextbox.Clear();
+            this.indexesBeingSearched.Clear();
+            this.indexesFound.Clear();
+            this.cancelToolStripMenuItem.Enabled = false;
+            this.searchToolStripMenuItem.Enabled = true;
+        }
+
+        private void SetButtonStateToOperating()
+        {
+            this.cancelToolStripMenuItem.Enabled = true;
+            this.searchToolStripMenuItem.Enabled = false;
+        }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            searchEngine.Cancel = true;
+            searchToolStripMenuItem.Enabled = true;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void computerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LoadNewWordSearch("Computers");
+        }
+
+        private void LoadNewWordSearch(string wordsearchName)
+        {
+            this.searchEngineData = new WordSearchResourceData(wordsearchName);
+            this.ClearFormState();
+            this.wordSearchPictureBox.Invalidate(false);
+        }
+
+        private void wikipediaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LoadNewWordSearch("Wikipedia");
+        }
+
+        private void testsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LoadNewWordSearch("Test");
+        }
+
+        private void simpleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LoadNewWordSearch("Simple");
+        }
+
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

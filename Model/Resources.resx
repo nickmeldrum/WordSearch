@@ -126,6 +126,15 @@
   <data name="ComputersWords" xml:space="preserve">
     <value>application;backup;binary;bluetooth;boot;byte;chat;click;cookie;cursor;data;defragment;directory;disk;drive;dos;drag;email;encryption;file;firewall;folder;gif;google;html;icon;internet;javascript;kernal;lcd;login;memory;monitor;mouse;nanosecond;network;partition;paste;pdf;pixel;power;supply;programmer;router;save;scanner;security;shareware;software;spam;taskbar;thumbnail;unix;wallpaper;wireless</value>
   </data>
+  <data name="SimpleLetters" xml:space="preserve">
+    <value>catoaawar</value>
+  </data>
+  <data name="SimpleWidth" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="SimpleWords" xml:space="preserve">
+    <value>cat;war;car;rat</value>
+  </data>
   <data name="TestLetters" xml:space="preserve">
     <value>ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn</value>
   </data>

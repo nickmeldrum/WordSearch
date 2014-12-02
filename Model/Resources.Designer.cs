@@ -88,6 +88,33 @@ namespace Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to catoaawar.
+        /// </summary>
+        public static string SimpleLetters {
+            get {
+                return ResourceManager.GetString("SimpleLetters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        public static string SimpleWidth {
+            get {
+                return ResourceManager.GetString("SimpleWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to cat;war;car;rat.
+        /// </summary>
+        public static string SimpleWords {
+            get {
+                return ResourceManager.GetString("SimpleWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ibnuvgwyuhgstgcsmokedgarlichpqrfbalsyokxpcgqacrdfetabdymliqqynfypiqledznwteoruthvsdlmuutrmxwnsaiuseibonaruwjtnkweeducecechzltcftrvimltpyruotmraflowoolvampiretrtrlsrcchutneyabyogcbksdppiegdqtnifllqhysecbsuiuapuedasmtquxxhssabn.
         /// </summary>
         public static string TestLetters {
