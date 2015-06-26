@@ -3,3 +3,4 @@
     <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
   </GlobalSettings>
 </StyleCopSettings>
+

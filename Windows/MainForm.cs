@@ -26,10 +26,11 @@
         private Brush searchIndexesBackgroundBrush = new SolidBrush(Color.SlateBlue);
         private Brush letterBrush = new SolidBrush(Color.Indigo);
 
-        private Dictionary<int, Color> lastBoxesSearched = new Dictionary<int, Color>();
         private int letterWidth;
         private IList<int> indexesFound = new List<int>();
         private IList<int> indexesBeingSearched = new List<int>();
+
+        private bool allowExpectedWordsCheck;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -37,6 +38,8 @@
             workerThread.DoWork += workerThread_DoWork;
             workerThread.RunWorkerCompleted += workerThread_RunWorkerCompleted;
             workerThread.WorkerSupportsCancellation = true;
+
+            findExpectedWordsToolStripMenuItem_Click(null, null);
         }
 
         void workerThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -49,10 +52,28 @@
 
         private void SearchEngineFoundWord(string direction, List<int> charIndexes, string word)
         {
-            foreach (var i in charIndexes.Where(i => !this.indexesFound.Contains(i)))
-                this.indexesFound.Add(i);
 
-            Action appendFoundWordToTextBox = () => foundWordsTextbox.AppendText(word + Environment.NewLine);
+            Action appendFoundWordToTextBox = () =>
+                {
+                    if (expectedWordsListBox.Items.IndexOf(word) >= 0)
+                    {
+                        this.allowExpectedWordsCheck = true;
+                        expectedWordsListBox.SetItemChecked(expectedWordsListBox.Items.IndexOf(word), true);
+                    }
+                    foundWordsTextbox.AppendText(word + Environment.NewLine);
+
+                    if (searchForAllWordsToolStripMenuItem.Checked)
+                    {
+                        foreach (var i in charIndexes.Where(i => !this.indexesFound.Contains(i)))
+                            this.indexesFound.Add(i);
+                    }
+                    else
+                    {
+                        if (expectedWordsListBox.Items.IndexOf(word) >= 0)
+                            foreach (var i in charIndexes.Where(i => !this.indexesFound.Contains(i)))
+                                this.indexesFound.Add(i);
+                    }
+                };
             Invoke(appendFoundWordToTextBox);
 
             Action redraw = () => wordSearchPictureBox.Invalidate(false);
@@ -64,6 +85,7 @@
             indexesBeingSearched = charIndexes;
 
             Action redraw = () => wordSearchPictureBox.Invalidate(false);
+
             Invoke(redraw);
         }
 
@@ -75,7 +97,11 @@
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (searchEngine != null)
+            {
+                searchEngine.BoxesBeingSearched -= SearchEngineBoxesBeingSearched;
+                searchEngine.FoundWord -= SearchEngineFoundWord;
                 searchEngine.Cancel = true;
+            }
         }
 
         private void wordSearchPictureBox_Paint(object sender, PaintEventArgs e)
@@ -151,6 +177,9 @@
             this.searchEngineData = new WordSearchResourceData(wordsearchName);
             this.ClearFormState();
             this.wordSearchPictureBox.Invalidate(false);
+
+            expectedWordsListBox.Items.Clear();
+            expectedWordsListBox.Items.AddRange(this.searchEngineData.ExpectedWords.ToArray());
         }
 
         private void wikipediaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,7 +199,34 @@
 
         private void customToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
+        }
 
+        private void searchForAllWordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            searchForAllWordsToolStripMenuItem.Checked = true;
+            findExpectedWordsToolStripMenuItem.Checked = false;
+
+            foundWordsTextbox.Visible = true;
+            expectedWordsListBox.Visible = false;
+        }
+
+        private void findExpectedWordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            searchForAllWordsToolStripMenuItem.Checked = false;
+            findExpectedWordsToolStripMenuItem.Checked = true;
+
+            foundWordsTextbox.Visible = false;
+            expectedWordsListBox.Visible = true;
+        }
+
+        private void expectedWordsListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (this.allowExpectedWordsCheck)
+            {
+                e.NewValue = e.NewValue == CheckState.Checked ? CheckState.Unchecked : CheckState.Checked;
+                allowExpectedWordsCheck = false;
+            }
         }
     }
 }
