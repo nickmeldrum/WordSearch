@@ -87,7 +87,14 @@
 
             Action redraw = () => wordSearchPictureBox.Invalidate(false);
 
-            Invoke(redraw);
+            try
+            {
+                Invoke(redraw);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                // just ignore if this invoke fails on closing of the form
+            }
         }
 
         void workerThread_DoWork(object sender, DoWorkEventArgs e)
@@ -97,6 +104,11 @@
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (workerThread != null)
+            {
+                workerThread.Dispose();
+            }
+
             if (searchEngine != null)
             {
                 searchEngine.BoxesBeingSearched -= SearchEngineBoxesBeingSearched;
