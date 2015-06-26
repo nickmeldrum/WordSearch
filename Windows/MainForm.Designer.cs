@@ -194,6 +194,7 @@
             this.expectedWordsListBox.Name = "expectedWordsListBox";
             this.expectedWordsListBox.Size = new System.Drawing.Size(138, 544);
             this.expectedWordsListBox.TabIndex = 6;
+            this.expectedWordsListBox.ThreeDCheckBoxes = true;
             this.expectedWordsListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.expectedWordsListBox_ItemCheck);
             // 
             // MainForm

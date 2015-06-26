@@ -58,7 +58,8 @@
                     if (expectedWordsListBox.Items.IndexOf(word) >= 0)
                     {
                         this.allowExpectedWordsCheck = true;
-                        expectedWordsListBox.SetItemChecked(expectedWordsListBox.Items.IndexOf(word), true);
+                        expectedWordsListBox.SetItemCheckState(expectedWordsListBox.Items.IndexOf(word), CheckState.Checked);
+                        this.allowExpectedWordsCheck = false;
                     }
                     foundWordsTextbox.AppendText(word + Environment.NewLine);
 
@@ -222,10 +223,9 @@
 
         private void expectedWordsListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (this.allowExpectedWordsCheck)
+            if (!this.allowExpectedWordsCheck)
             {
                 e.NewValue = e.NewValue == CheckState.Checked ? CheckState.Unchecked : CheckState.Checked;
-                allowExpectedWordsCheck = false;
             }
         }
     }
