@@ -171,7 +171,8 @@
 
         private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            searchEngine.Cancel = true;
+            if (searchEngine != null)
+                searchEngine.Cancel = true;
             searchToolStripMenuItem.Enabled = true;
         }
 
@@ -187,6 +188,7 @@
 
         private void LoadNewWordSearch(string wordsearchName)
         {
+            cancelToolStripMenuItem_Click(null, null);
             this.searchEngineData = new WordSearchResourceData(wordsearchName);
             this.ClearFormState();
             this.wordSearchPictureBox.Invalidate(false);
