@@ -139,6 +139,9 @@
 
                 e.Graphics.DrawRectangle(gridPen, rect);
 
+                point.X = point.X + letterWidth / 4;
+                point.Y = point.Y + letterWidth / 12;
+
                 e.Graphics.DrawString(
                     this.searchEngineData.Letters[i].ToString(CultureInfo.InvariantCulture),
                     this.font, letterBrush, point
