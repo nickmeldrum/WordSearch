@@ -32,6 +32,8 @@
 
         private bool allowExpectedWordsCheck;
 
+        private readonly Font font = new Font("consolas", 32);
+
         private void Form1_Load(object sender, EventArgs e)
         {
             workerThread = new BackgroundWorker();
@@ -121,12 +123,13 @@
         {
             if (this.searchEngineData == null) return;
 
-            var font = new Font("consolas", 32);
+            var size = new Size(letterWidth, letterWidth);
 
             for (var i = 0; i < this.searchEngineData.Letters.Length; i++)
             {
-                var point = new Point(letterWidth * (i % this.searchEngineData.Width), letterWidth * (i / this.searchEngineData.Width));
-                var rect = new Rectangle(point, new Size(letterWidth, letterWidth));
+                var point = new Point(letterWidth * (i % this.searchEngineData.Width),
+                    letterWidth * (i / this.searchEngineData.Width));
+                var rect = new Rectangle(point, size);
 
                 if (indexesFound.Contains(i) && !indexesBeingSearched.Contains(i))
                     e.Graphics.FillRectangle(foundWordBackgroundBrush, rect);
@@ -138,7 +141,7 @@
 
                 e.Graphics.DrawString(
                     this.searchEngineData.Letters[i].ToString(CultureInfo.InvariantCulture),
-                    font, letterBrush, point
+                    this.font, letterBrush, point
                 );
             }
         }
