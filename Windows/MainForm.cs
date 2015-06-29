@@ -32,7 +32,7 @@
 
         private bool allowExpectedWordsCheck;
 
-        private readonly Font font = new Font("consolas", 32);
+        private Font font;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -159,6 +159,7 @@
         private void ClearFormState()
         {
             this.letterWidth = this.wordSearchPictureBox.Width / this.searchEngineData.Width;
+            this.font = new Font("consolas", this.letterWidth / 2);
             this.foundWordsTextbox.Clear();
             this.indexesBeingSearched.Clear();
             this.indexesFound.Clear();
