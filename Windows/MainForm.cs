@@ -22,6 +22,7 @@
         private BackgroundWorker workerThread;
 
         private Pen gridPen = new Pen(Color.IndianRed, 4F);
+        private Pen gridPen2 = new Pen(Color.Lime, 4F);
         private Brush foundWordBackgroundBrush = new SolidBrush(Color.Khaki);
         private Brush searchIndexesBackgroundBrush = new SolidBrush(Color.SlateBlue);
         private Brush letterBrush = new SolidBrush(Color.Indigo);
@@ -124,28 +125,49 @@
             if (this.searchEngineData == null) return;
 
             var size = new Size(letterWidth, letterWidth);
+            var numRows = this.searchEngineData.Letters.Length / this.searchEngineData.Width;
 
-            for (var i = 0; i < this.searchEngineData.Letters.Length; i++)
+            for (var rowNum = 0; rowNum < numRows; rowNum++)
             {
-                var point = new Point(letterWidth * (i % this.searchEngineData.Width),
-                    letterWidth * (i / this.searchEngineData.Width));
-                var rect = new Rectangle(point, size);
+                for (var colNum = 0; colNum < this.searchEngineData.Width; colNum++)
+                {
+                    var letterIndex = colNum + rowNum * this.searchEngineData.Width;
+                    var point = new Point(letterWidth * colNum + 4, letterWidth * rowNum + 4);
+                    var rect = new Rectangle(point, size);
+                    if (colNum == this.searchEngineData.Width - 1)
+                    {
+                        rect.Width = rect.Width - 8;
+                    }
+                    if (rowNum == 0)
+                    {
+                        //rect.Height = rect.Height - 8;
+                    }
+                    else
+                    {
+                        point.Y = point.Y - 8;
+                        if (rowNum == numRows - 1)
+                        {
+                            rect.Height = rect.Height - 16;
+                        }
+                    }
 
-                if (indexesFound.Contains(i) && !indexesBeingSearched.Contains(i))
-                    e.Graphics.FillRectangle(foundWordBackgroundBrush, rect);
+                    if (indexesFound.Contains(letterIndex) && !indexesBeingSearched.Contains(letterIndex))
+                       e.Graphics.FillRectangle(foundWordBackgroundBrush, rect);
 
-                if (indexesBeingSearched.Contains(i))
-                    e.Graphics.FillRectangle(searchIndexesBackgroundBrush, rect);
+                    if (indexesBeingSearched.Contains(letterIndex))
+                        e.Graphics.FillRectangle(searchIndexesBackgroundBrush, rect);
 
-                e.Graphics.DrawRectangle(gridPen, rect);
+                    e.Graphics.DrawRectangle(gridPen, rect);
 
-                point.X = point.X + letterWidth / 4;
-                point.Y = point.Y + letterWidth / 12;
+                    point.X = point.X + letterWidth / 4;
+                    point.Y = point.Y + letterWidth / 12;
 
-                e.Graphics.DrawString(
-                    this.searchEngineData.Letters[i].ToString(CultureInfo.InvariantCulture),
-                    this.font, letterBrush, point
-                );
+                    e.Graphics.DrawString(
+                        this.searchEngineData.Letters[letterIndex].ToString(CultureInfo.InvariantCulture),
+                        this.font,
+                        letterBrush,
+                        point);
+                }
             }
         }
 
